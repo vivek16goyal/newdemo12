@@ -8,19 +8,17 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>A To Z Dava</title>   
+    <title>TiaERP@App</title>   
     <script src="js/jquery.js"></script>
     <style>
         .first-main-page {
-            background-color:white; /*#1390cf*/ /*1094d7*/
+            background-color: #1390cf /*1094d7*/;
             overflow: hidden;
         }
         
         .font {
-            color: #f1f0f2;
+            color: #f8f6f6;
             font-family: Verdana;
-            font-weight:900;
-            background-color: #d0dff8;
         }
         .span-tia{
             font-size:17vmin;
@@ -34,17 +32,16 @@
 
         .shade
         {
-           text-shadow:2px 2px 12px #9ef6b3;
+           text-shadow:2px 2px 2px #abe3fb;
         }
         
         .p-footer {            
             position: absolute;
-            color: #808080;
+            color: #f8f6f6;
             font-family: Verdana;
-            font-size: 4vmin;
+            font-size: 5vmin;
             bottom: 0%;
-            right: 1%;
-            font-weight:100;
+            right: 0%;
         }
        
         .p-footer img{
@@ -55,33 +52,32 @@
     </style>
      <link rel=" stylesheet" href="assets/css/animate.css">
     <script>
+        //var APPType = "$"; //@ for generlized.... $ for specialized
+        //var Heading = "Shree Medical" // "TiaERP@ConsumerApp";
         
-        document.addEventListener("deviceready", onDeviceReady, true);
         function onDeviceReady() {
-            try{               
-                $("#8").show()
-                textAnim('8', 'bounceInDown');
-                c = setTimeout(function () {
-                    textAnim('8', 'flip'); 
-                }, 800);
-           
-                a = setTimeout(function () {
-                    $("#LoText").show();
-                    textAnim('LoText', 'bounceInUp');
-                }, 1000);
-
-                b = setTimeout(function () {
-                     window.location = "HomePage.html";
-                }, 5000);
-            }
-            catch (e) {
-                alert(e.message);
-            }
+            $("#div1").show();
+            c = setTimeout(function () {
+                textAnim('div1', 'flash');
+            }, 1000);
+            ////} else {
+            ////    $("#name").text(Heading);
+            ////    $("#div1").hide();
+            ////    $("#div2").show();
+            ////    textAnim('div2', 'flash');
+            ////}
+            a = setTimeout(function () {
+                $('#div').addClass('shade');
+            }, 2000);
+            b = setTimeout(function () {
+                window.location = "HomePage.html";
+            }, 3000);
         }
         function textAnim(evt, str) {
             try {
                 $('#' + evt).addClass(str + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-                    $('#' + evt).removeClass(str + ' animated');                    
+                    $('#' + evt).removeClass(str + ' animated');
+                    
                 });
             } catch (err) {
             }
@@ -89,20 +85,27 @@
     </script>
 </head>
 
-<body class="first-main-page font" >
-        <script type="text/javascript" src="cordova.js"></script>
-
-  <center>
-     <div id="div" style="margin-top:35vmin;">
-       <div style="width:100%">
-           <img id="8" src="assets/img/A2Z Dawa.png" style="width:80vw;height:35vh; margin-left:-10px; display:none"/>           
+<body class="first-main-page font" onload="onDeviceReady();">
+   <div style="margin-top:32vmin" id="div">
+       <div id="div1" style="display:none">
+           <center>
+               <span class="span-tia" style="font-size:20vmin;">TiaERP@</span>
+               <span class="span-erp" >ConsumerApp</span>
+           </center>
        </div>
-        <div id="LoText" style="display:none"> <label  style="color:#2b80a1;font-size:x-large;font-weight:bold;">A online pharmacy on pilot mode</label></div>
-     </div>
-      </center>
-    <p class="p-footer">
-        Powered By: Goyal Bros & Co
-    </p> 
+       <!--<div id="div2" style="line-height:10vmin;display:none;">
+           <center>
+                <span id="name" style="font-size:20vmin;"></span>
+           </center>
+       </div>-->
+   </div>
+   <p class="p-footer">
+        Powered By: <a title="Goyal Bros. & Co." target="_blank" href="http://www.goyalonline.com">
+            <img src="assets/img/GBC.png" alt="jQuery Mobile">
+        </a>
+    </p>  
+       
+     
 </body>
 
 </html>
