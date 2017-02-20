@@ -78,7 +78,8 @@ function onDeviceReady() {
     else {
         $("#div_statecity").show();
         try {
-            if (HomeSlideCnt == "1") {
+            if (HomeSlideCnt == "1")
+            {
                 $("#HomeSlider-div").html("<ul  id='sliderFrame' style='display: none' > <li id='slide-1'>" +
                                          "<img src='assets/img/Slide-11.jpg' />" +
                                          "</li></ul>");
@@ -87,12 +88,15 @@ function onDeviceReady() {
                 $("#li-offer").hide();
             }
 
-            if (pWallet == "1") {
+            if (pWallet == "1")
+            {
                 $("#li-wal").Show();
-            } else {
+            } else
+            {
                 $("#li-wal").hide();
             }
-        } catch (e) {
+        } catch (e)
+        {
             alert(e.message);
         }        
     }
