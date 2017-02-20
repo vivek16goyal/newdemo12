@@ -12,7 +12,7 @@
     <link rel=" stylesheet" href="assets/css/TableCSSCode.css">
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-1.9.js"></script>
-    
+
     <!--SMS-->
     <script src="js/jquery.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -80,7 +80,6 @@
             /* Important Thing */
             -webkit-appearance: none;
             border: none;
-            
         }
 
             progress::-webkit-progress-bar {
@@ -178,7 +177,7 @@
                 text-align: center;
                 line-height: 28px;
             }
-            /*.full_image .full_left {
+        /*.full_image .full_left {
                 cursor: pointer;
                 top:190px;
                 height: 29px;
@@ -209,7 +208,7 @@
     </style>
 
 </head>
-<body onload="onDeviceReady()" id="mainBd" class="theme-color" style="overflow:scroll">
+<body onload="onDeviceReady()" id="mainBd" class="theme-color" style="overflow: scroll">
 
     <div id="page-con" data-role="page" class="jqm-demos">
         <div data-role="header" data-position="fixed" class="jqm-header">
@@ -268,7 +267,7 @@
             <div class="MainDiv" id="HomePagehree" style="display: none">
                 <div>
                     <a href=".././">
-                        <img src="assets/img/MainPagelogo.png"  alt="jQuery Mobile" class="MainDiv-logo"></a>
+                        <img src="assets/img/MainPagelogo.png" alt="jQuery Mobile" class="MainDiv-logo"></a>
                     <div class="MainDiv-text">
                         <p id="main-p-00002_">
                             Shree Medical & General Stores is leading medicine shop in Central India having wide range and ready stock of Medicines, Injectables, Surgical Equipment, Tools, Swine Flu, Cancer and Specialised Medicines etc.  
@@ -280,7 +279,7 @@
                             A to Z Dava Stores is leading medicine shop in Central India having wide range and ready stock of Medicines, Injectables, Surgical Equipment, Tools, Swine Flu, Cancer and Specialised Medicines etc.  
                             <br />
                             <br />
-                          <!--  <a  onclick="DownLoad()"> DownLoad Imgae</a>
+                            <!--  <a  onclick="DownLoad()"> DownLoad Imgae</a>
                             <br />
                             <a onclick="Dwn()"> Download Image 12 </a>
 
@@ -293,7 +292,7 @@
             <br />
 
             <section class="slider" id="slide-offer">
-                <div class="flexslider" id="HomeSlider-div" style="height:18vh">
+                <div class="flexslider" id="HomeSlider-div" style="height: 18vh">
                     <ul class="slides" id="sliderFrame" style="display: none" onclick="ShowOffer()">
                         <li id="slide-1">
                             <img src="assets/img/slide-1.jpg" />
@@ -306,12 +305,15 @@
             </section>
 
 
-            <div id="menuBottun" class="MainDiv" style="display: none; margin-left: 20px; margin-right: 20px; ">
+            <div id="menuBottun" class="MainDiv" style="display: none; margin-left: 20px; margin-right: 20px;">
 
-                <div class="btn-div" id="menuBtn" >
+                <div class="btn-div" id="menuBtn">
 
                     <center>
                         <div id="tbl1">
+                             <ul  data-role='listview' data-inset='true'  class='touch ui-listview ui-listview-inset ui-corner-all ui-shadow' data-icon='false' onclick='termscondition()'>
+                        <li class=' ui-li-static ui-body-inherit ui-first-child ui-last-child'><img src="assets/img/Terms-Conditions.png"  /><label class="theme-color-txt" style="margin-top:15px;padding-bottom :inherit ">Company Terms and Policy </label> </li>
+                        </ul>
                         <ul  data-role='listview' data-inset='true'  class='touch ui-listview ui-listview-inset ui-corner-all ui-shadow' data-icon='false' onclick="Upload_click()">
                         <li class=' ui-li-static ui-body-inherit ui-first-child ui-last-child'><img src="assets/img/Upload.jpg" /> <label class="theme-color-txt" style="margin-top:6px;">Upload Your Prescription! </label></li>
                         </ul>
@@ -324,7 +326,10 @@
                             <ul  data-role='listview' data-inset='true'  class='touch ui-listview ui-listview-inset ui-corner-all ui-shadow' data-icon='false' onclick='Order_History()'>
                         <li class=' ui-li-static ui-body-inherit ui-first-child ui-last-child'><img src="assets/img/History.jpg"  /><label class="theme-color-txt" style="margin-top:15px;">Order History </label> </li>
                         </ul>
+
+                       
                         </div>
+                        <br />
                         <br />
                         <br />
                         <br />
@@ -405,9 +410,9 @@
                 <label>Mobile No</label>
                 <input type="number" placeholder="Enter Mobile No" data-theme="a" id="txtMoNO" pattern="[0-9]" />
                 <div id="Doc_Div">
-                <label>Doctor Name</label>
-                <input type="text" placeholder="Enter Doctor Name" data-theme="a" id="txtDocName" onblur="SetDocName('1')" />
-                    </div>
+                    <label>Doctor Name</label>
+                    <input type="text" placeholder="Enter Doctor Name" data-theme="a" id="txtDocName" onblur="SetDocName('1')" />
+                </div>
                 <label>Email-Id</label>
                 <input type="email" placeholder="Email Id" data-theme="a" id="txtemail" onblur="CheckEmail(this)" />
                 <div id="div_statecity">
@@ -481,7 +486,7 @@
             <img src="assets/img/Header.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;margin-left:42px;" alt="jQuery Mobile" >
                 </center>
         </div>
-        <div role="main" class="ui-content">
+        <div role="main" class="ui-content" style="height: 100%">
             <div class="body-with-shadow">
                 <br />
                 <div id="item-search-body">
@@ -499,6 +504,7 @@
                                 <td>
                                     <a href="#ImageSelect" data-transition="flip"><div class="ui-btn ui-input-btn ui-corner-all ui-shadow  ui-mini theme-color-btn" style="background: #1390cf" id="div2" onclick="highlight_Control('div2')"> <img src="assets/img/upload-Pre.png" style="width:25px;height:25px;" alt="Browse Image"></div></a>
                                 </td>
+
                                 <td>
                                     <a onclick="fun_showCart()" ><div class="ui-btn ui-input-btn ui-corner-all ui-shadow ui-mini theme-color-btn" style="background: #1390cf" onclick="fun_nextItem()"> <img id="okparty" src="assets/img/arrow-right.png" style="width:25px;height:25px;" alt="next"></div></a>
                                 </td>
@@ -578,7 +584,7 @@
                 </center>
         </div>
         <div role="main" class="ui-content">
-            <div class="body-with-shadow">
+            <div class="body-with-shadow ">
                 <br />
                 <div id="item-info-body" style="font-family: Verdana;">
                     <label id="lblItmCode" style="display: none;"></label>
@@ -721,7 +727,7 @@
                             <td colspan="2">
                                 <input type="text" id="dr-name" placeholder="Enter Doctor Name..." data-theme="a" data-type="search" />
                                 <div id="dr-info-body" style="width: 90%" class="display-none">
-                                    <label style="margin-top: -5px; font-size: 13px;display:none" id="dr_infoAdd"></label>
+                                    <label style="margin-top: -5px; font-size: 13px; display: none" id="dr_infoAdd"></label>
                                 </div>
                             </td>
                         </tr>
@@ -765,19 +771,19 @@
                                     <tr>
                                         <td>Subtotal:</td>
                                         <td style="float: right" id="amt"></td>
-                                    </tr>                                    
+                                    </tr>
                                     <tr id="tr_Disc">
                                         <td id="td3">Discount (20%):</td>
                                         <td style="float: right" id="DiscAmt">0.00</td>
                                     </tr>
                                     <tr id="tr_Wallete">
-                                        <td >Wallet Amt:</td>
+                                        <td>Wallet Amt:</td>
                                         <td style="float: right" id="walAmt">0.00</td>
                                     </tr>
                                     <tr>
                                         <td>Shipping Charges:</td>
                                         <td style="float: right" id="charges"></td>
-                                    </tr>                                   
+                                    </tr>
                                     <tr>
                                         <td style="font-weight: bold">Total Order Amount: </td>
                                         <td style="float: right; font-weight: bold" id="Ordtot"></td>
@@ -955,9 +961,9 @@
                     </div>
                     </center>
                 </div>
-                <div id="orderHistory-div">
+                <div id="orderHistory-div" style="height: 100%">
                     <center>
-                       <div role="main" class="ui-content" style="overflow-x: visible; width: 90%" id="Div-ord-history">
+                       <div role="main" class="ui-content" style="overflow-x: visible; width: 90%"  id="Div-ord-history">
                          <div id="Div7" >                             
                         <img id="img18" src="assets/img/blue-cart.png" alt="Checking Status" style="margin-top:15px;" />                    
                         <p style="font-size:12px;color:#808080;margin-top:-1px;width:60vw;text-align:justify">Here you get your last order details. To veiw order item please tap on required order.</p>
@@ -981,8 +987,8 @@
                     <label>Mobile No</label>
                     <input type="number" data-theme="a" id="pro_txtmo" />
                     <div id="pro_DocDiv">
-                    <label>Doctor Name</label>
-                    <input type="text" placeholder="Enter Doctor Name" data-theme="a" id="pro_txtDocname" onblur="SetDocName('2')" />
+                        <label>Doctor Name</label>
+                        <input type="text" placeholder="Enter Doctor Name" data-theme="a" id="pro_txtDocname" onblur="SetDocName('2')" />
                     </div>
                     <label>Email-Id</label>
                     <input type="email" placeholder="Email Id" data-theme="a" id="pro_txtemail" onblur="CheckEmail(this)" />
@@ -1138,7 +1144,8 @@
             </div>
         </div>
         <div data-role="footer" data-position="fixed" class="my-footer">
-            <p>Copyright &copy; - All Rights Reserved  www.goyalonline.com </p>
+            <!--<p>Copyright &copy; - All Rights Reserved  www.goyalonline.com </p>-->
+            <p>Developed By:- Yashaswi R. Narkhedkar</p>
         </div>
     </div>
 
@@ -1314,6 +1321,73 @@
     <div id="Div11" style="display: none; background-color: white; border-radius: 8px; border: thick groove #808080; height: auto; box-shadow: 0px 3px 5px #bbbdbb; position: fixed; width: 80%; z-index: 1001; padding: 15px; bottom: 8%; left: 5%">
     </div>
     <div id="Div12" style="display: none; background-color: white; border-radius: 8px; border: thick groove #808080; height: auto; box-shadow: 0px 3px 5px #bbbdbb; position: fixed; width: 80%; z-index: 1001; padding: 15px; bottom: 8%; left: 5%">
+    </div>
+    <!--vivek umredkar code added-->
+    <div data-role="page" id="Term-condition" class="jqm-demos">
+        <!-- /header -->
+        <div data-role="header" data-position="fixed" class="jqm-header">
+            <!--            <a data-rel="back" style="background-color: white" data-transition="flip" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-left ">Login</a>-->
+
+
+            <a data-rel="back">
+                <div class="ui-btn" style="background: #1390cf" id="div13" onclick="closewindow()">
+                    <img src="assets/img/arrow-left.png" alt="prev">
+                </div>
+            </a>
+
+            <img src="assets/img/red.gif" alt="Offline" class="ui-btn-right alert-img activeImg">
+            <h2 id="h11" style="color: white;">Terms and Policy</h2>
+        </div>
+        <div role="main" class="ui-content">
+            <center> 
+                <div  style="width: 100%; box-sizing : border-box  ; text-align: center" class=" body-with-shadow.close"  >
+               
+            
+                  
+                <table style="text-align: center; " align="center" >
+                   
+                    <tr style="width: auto; text-align: center" id="Div19" >
+
+                        <td style="text-align: left" class="jqm-header" >
+                        
+                            <h6>1:- Do Not make Illegal copies of this Software.  The use of Software is completely restricted to the computer on which it is installed and for the Firm / Company / Individual for which it is developed.       (Non-Transferrable)</h6>
+                            <h6>2:- We are purely a software firm and this software utility is develop for you on job work basis.</h6>
+                            <h6>3:- S/w. user rights once sold should not be returned whether you continue the use of the S/w. or Stop.</h6>
+
+                            <h6>4:- Our liability is restricted to Installation & Training on Software Application / Usages.</h6>
+                            <h6>5:- We shall be responsible & liable to answer/solve any queries of our clients only and which is limited to software application / Usages.</h6>
+                            <h6>6:- We shall alone has the exclusive rights to collect Lic Ren Chrgs of the software from our clients, as per the Lic Ren chrgs option selected by the client.</h6>
+                            <h6>7:- For any unpaid Lic Ren Chrgs and / or Installments, we shall has the right to lock the Software of the client.  The software may not work further and the paid amount will be forfeited.</h6>
+                             <h6>8:- No responsibility towards any Data Loss, System Failure, Erroneous Feedings / Invoicing.</h6>
+                             <h6>9:- Contact NOs: 0712-3294004, 3240909, 9370707169, 59, 49</h6>
+                             <h6>10:- We shall not respond to any calls if the problems are not related to us.</h6>
+                             <h6>11:- For any special / tailor made requirements / changes in software, client has to pay extra amount as and when decided.</h6>
+                             <h6>12:- The Product Information Service is not necessarily part of Software. It is being offered as an extra service.  The Content may or may not be fully informative and correct.  </h6>
+                             <h6>13:- Product Information Service can be withdraw any time out of our own free will....".  The up gradation of Product's Information will be under sole discretion of software provider.</h6>
+                             <h6>14:- Subject to Nagpur Jurisdiction Only.</h6>
+                             <h6></h6>
+                        </td>
+                      
+                    </tr>
+                    
+                     <!--<tr>
+                        <td align="center" style ="height :5px" >
+                           <img id="Img15" src="assets/img/exit-button.png" alt="Canecl" style ="height :80px;width :150px" onclick="closewindow() " onmouseover='mOver(this)' onmouseout='mOut(this)'  >
+
+                        </td>
+                    </tr>-->
+
+                </table>
+            
+
+            </div>
+
+           </center>
+        </div>
+       
+        <div data-role="footer" data-position="fixed" class="my-footer" style="width: 100%;">
+            <p>Copyright &copy; - All Rights Reserved  www.goyalonline.com </p>
+        </div>
     </div>
 </body>
 </html>
