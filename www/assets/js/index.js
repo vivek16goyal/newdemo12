@@ -80,7 +80,7 @@ function onDeviceReady() {
         try {
             if (HomeSlideCnt == "1") {
                 $("#HomeSlider-div").html("<ul  id='sliderFrame' style='display: none' > <li id='slide-1'>" +
-                                         "<img src='www/assets/img/Slide-11.jpg' />" +
+                                         "<img src='assets/img/Slide-11.jpg' />" +
                                          "</li></ul>");
                 $("#sliderFrame").addClass("slides");
                 $("#sliderFrame li").show();
@@ -456,7 +456,7 @@ function CheckPartyRegistration(val) {
 
 function CheckSupplierStatus() {
     $('.activeImg').show();
-    $('.activeImg').attr('src', 'www/assets/img/red.gif');
+    $('.activeImg').attr('src', 'assets/img/red.gif');
     if (Flag != "0") {
         loadmsg = "Checking...";
         $(".show-page-loading-msg").click();
@@ -539,7 +539,7 @@ function showClient() {
     }
     $("#imgcheck").hide();
     $("#on").show();
-    $('.activeImg').attr('src', 'www/assets/img/red.gif');
+    $('.activeImg').attr('src', 'assets/img/red.gif');
     $("#a_div-clientCode").click();
 }
 
@@ -1754,17 +1754,17 @@ function PingTiaService(val) {
                 if (val != "2") {
                     Flag = '1';
                 }
-                $('.activeImg').attr('src', 'www/assets/img/green.gif');
+                $('.activeImg').attr('src', 'assets/img/green.gif');
             }
             else {
-                $('.activeImg').attr('src', 'www/assets/img/red.gif');
+                $('.activeImg').attr('src', 'assets/img/red.gif');
                 if (val != "2") {
                     alert("Connection to supplier failed. " + data);
                 }
             }
         },
         error: function (xmlHttpRequest, textStatus, errorThrown) {
-            $('.activeImg').attr('src', 'www/assets/img/red.gif');
+            $('.activeImg').attr('src', 'assets/img/red.gif');
             if (val != "2") {
                 alert("Connection to supplier failed. ");
             }
@@ -2093,8 +2093,8 @@ function fail(error) {
 
 function Close_img() {
     var smallImage = document.getElementById('sel_image');
-    smallImage.src = "www/assets/img/No_image.png";
-    document.getElementById('Img16').src = "www/assets/img/No_image.png";
+    smallImage.src = "assets/img/No_image.png";
+    document.getElementById('Img16').src = "assets/img/No_image.png";
 }
 
 function FullSize() {
@@ -3002,7 +3002,7 @@ function getOrderHistory() {
                                       "<table>" +
                                           "<tr>" +
                                               "<td rowspan='2'>" +                                                  
-                                                  "<img id='vrnoimg" + itm[i].vrno + "' src='www/assets/img/No_image.png' style='width:100px;height:120px;'/>" +
+                                                  "<img id='vrnoimg" + itm[i].vrno + "' src='assets/img/No_image.png' style='width:100px;height:120px;'/>" +
                                               "</td>" +
                                           "</tr>" +
                                           "<tr>" +
@@ -3011,7 +3011,7 @@ function getOrderHistory() {
                                                   "<p style='margin-top:-9px;'>" + itm[i].vrdate + "</p>" +
                                                   "<label style='white-space:initial;margin-top:-4px;'>" + itm[i].pcode + "</label>" +
                                                   "<p style='margin-top:-6px;'>Total Item : " + itm[i].items.length + "</p>" +
-                                                  "<p style='margin-top:-6px;'><span > <img src='www/assets/img/rupee.png' alt='Rs' class='rupes' /> </span><span class='amt-color' id='Span1'>" + itm[i].TotalAmt + "</span></p>" +
+                                                  "<p style='margin-top:-6px;'><span > <img src='assets/img/rupee.png' alt='Rs' class='rupes' /> </span><span class='amt-color' id='Span1'>" + itm[i].TotalAmt + "</span></p>" +
                                               "</td>" +
                                           "</tr>" +
                                           "<tr>" +
@@ -3034,7 +3034,7 @@ function getOrderHistory() {
                             $("#itmtbl" + i + " tr:last").after("<tr><td colspan='3'>No Item Available</td></tr></tbody>");
                         }
                         if (itm[i].imgName != "" && itm[i].imgName != null) {
-                            document.getElementById("vrnoimg" + itm[i].vrno).src = "www/assets/img/prescription_icon.jpg";
+                            document.getElementById("vrnoimg" + itm[i].vrno).src = "assets/img/prescription_icon.jpg";
                             //Receive(itm[i].imgName, "vrnoimg" + itm[i].vrno + "")
                         }
                         ShowItemList(i);
@@ -3432,7 +3432,7 @@ function onPhotoDataSuccessProfile(imageURI) {  ///////////////
 function SetProfilePhoto() {
     if (localStorage.getItem("Profile-img") == null || localStorage.getItem("Profile-img") == "") {
         var smallImage = document.getElementById('Profile-img');
-        smallImage.src = "www/assets/img/add-user.png";
+        smallImage.src = "assets/img/add-user.png";
     }
     else {
         var smallImage = document.getElementById('Profile-img');
@@ -4266,12 +4266,12 @@ function GetLastWalletTransc() {
 
 function ShowMsgCredit(val) {
     $("#Div11").html(" <center>" +
-                    "<img id='booke' src='www/assets\img\booke.jpg' alt='Thank You' style='width:80px;'/>" +
+                    "<img id='booke' src='assets\img\booke.jpg' alt='Thank You' style='width:80px;'/>" +
                 "<label id='Div11-1' style='padding-top:10px'>" +
                 "</label>" +
                     "<span style='color:red;font-size:12px;'>Get More Benifits By More Order. </span>" +
                     "</center>   ");
-    $('#booke').attr('src', 'www/assets/img/booke.jpg');
+    $('#booke').attr('src', 'assets/img/booke.jpg');
     $('#Div11-1').text("Congratulation! Your Wallete Is Credited With " + val + " . Please Check Your Wallet.")
 }
 function ShowMsgOrdSave() {
@@ -4281,7 +4281,7 @@ function ShowMsgOrdSave() {
                 "</label>"+
                     "<span style='color:red;font-size:12px;'> Please Note:- Order Amount May Be Change When Order Is Proceed. </span>"+
                     "</center>   ");
-    $('#thank').attr('src', 'www/assets/img/thanku.jpg');
+    $('#thank').attr('src', 'assets/img/thanku.jpg');
 }
 
 function ShowPopupDivMsg() {
