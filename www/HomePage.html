@@ -4,13 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
     <title>TiaERP@App</title>
-    <link rel=" stylesheet" href="assets/css/jqm-demos.css">
-    <!--<link rel=" stylesheet" href="assets/css/jqm-demos00002_.css"> This CSS file use fror 00002_ shree medical app-->
+    <!--<link rel=" stylesheet" href="assets/css/jqm-demos.css">-->
+    <!--This CSS file use fror 00002_ shree medical app-->
+    <link rel=" stylesheet" href="assets/css/App.css">
     <link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css">
     <link rel=" stylesheet" href="assets/css/animate.css">
     <link rel=" stylesheet" href="assets/css/TableCSSCode.css">
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-1.9.js"></script>
+    
     <!--SMS-->
     <script src="js/jquery.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -25,9 +27,23 @@
     <link rel="stylesheet" href="assets/FlexSlider/flexslider.css">
     <script defer src="assets/FlexSlider/modernizr.js"></script>
     <script defer src="assets/FlexSlider/jquery.flexslider.js"></script>
+
+    <!--<script type="text/javascript" src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>-->
+
     <script type="text/javascript">
+
+        //var angle = 0;
+        //function RotateLeft() {
+        //    angle -= 90;
+        //    $("#sel_image").rotate(angle);
+        //}
+
+        //function RotateRight() {
+        //    angle += 90;
+        //    $("#sel_image").rotate(angle);
+        //}
         $(function () {
-            SyntaxHighlighter.all();
+            //SyntaxHighlighter.all();
         });
         $(window).load(function () {
             $('.flexslider').flexslider({
@@ -43,6 +59,7 @@
     <!-- End slider -->
 
     <script>
+
         function CheckEmail(e) {
             if (e.value != "") {
                 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e.value)) {
@@ -63,6 +80,7 @@
             /* Important Thing */
             -webkit-appearance: none;
             border: none;
+            
         }
 
             progress::-webkit-progress-bar {
@@ -160,10 +178,38 @@
                 text-align: center;
                 line-height: 28px;
             }
+            /*.full_image .full_left {
+                cursor: pointer;
+                top:190px;
+                height: 29px;
+                opacity: 1;
+                position: absolute;
+                width: 29px;
+                z-index: 999;
+                left: 10px;
+                color: white;
+                text-decoration: none;
+                text-align: center;
+                line-height: 28px;
+            }
+            .full_image .full_right {
+                cursor: pointer;
+                top:190px;
+                height: 29px;
+                opacity: 1;
+                position: absolute;
+                width: 29px;
+                z-index: 999;
+                right: 10px;
+                color: white;
+                text-decoration: none;
+                text-align: center;
+                line-height: 28px;
+            }*/
     </style>
 
 </head>
-<body onload="onDeviceReady()" id="mainBd" class="theme-color">
+<body onload="onDeviceReady()" id="mainBd" class="theme-color" style="overflow:scroll">
 
     <div id="page-con" data-role="page" class="jqm-demos">
         <div data-role="header" data-position="fixed" class="jqm-header">
@@ -173,7 +219,7 @@
             <img id="on" src="assets/img/green.gif" alt="Online" class="ui-btn-right alert-imgOn activeImg" style="display: none">
             <h2 id="heading" class="GenralizedApHeading"></h2>
             <center>
-            <img src="assets/img/ShreeMedical.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;" alt="jQuery Mobile" >
+            <img src="assets/img/Header.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;" alt="jQuery Mobile" >
                 </center>
 
             <a href="#outside" id="a4" data-transition="flip" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left " style="background-color: white; display: none">Menu</a>
@@ -187,7 +233,7 @@
 
                         <center>
                     <label style="margin-top:10px;">Welcome in, </label>
-            <img src="assets/img/ShreeMedical.png" style="width:130px;height:30px;border-radius:20px;" alt="jQuery Mobile" >
+            <img src="assets/img/Header.png" style="width:130px;height:30px;border-radius:20px;" alt="jQuery Mobile" >
                 </center>
                     </li>
                 </ul>
@@ -197,8 +243,8 @@
 			<li data-icon="info"><a onclick="index_click()" data-rel="close">Index Page</a></li>
             <li data-icon="home"><a onclick="home_click()" data-rel="close">Home Page</a></li>
             <li data-icon="calendar"><a onclick="Rpt_click()">Order Bill Report</a></li>
-            <li id="li-wal" data-icon="star" style="background-color:#edeeed"> <a href="#My-Wallet" onclick="SetWalletBal()" data-transition="flip">My Wallet &nbsp;<img id="Img15" src="assets/img/new.gif" alt="New" ></a></li>
-            <li data-icon="eye"> <a href="#div-offer" data-transition="flip">Offers</a></li>
+            <li id="li-wal" data-icon="star" style="background-color:#edeeed"> <a href="#My-Wallet" onclick="SetWalletBal()" data-transition="flip">My Wallet </a></li>
+            <li id="li-offer" data-icon="eye"> <a href="#div-offer" data-transition="flip">Offers</a></li>
 			<li data-icon="power"><a onclick="Reset()">Logout</a></li>
 		    </ul>
                     </center>
@@ -222,13 +268,24 @@
             <div class="MainDiv" id="HomePagehree" style="display: none">
                 <div>
                     <a href=".././">
-                        <img src="assets/img/shree_logo.png" style="border-radius: 200px" alt="jQuery Mobile" class="MainDiv-logo"></a>
+                        <img src="assets/img/MainPagelogo.png"  alt="jQuery Mobile" class="MainDiv-logo"></a>
                     <div class="MainDiv-text">
-                        <p>
+                        <p id="main-p-00002_">
                             Shree Medical & General Stores is leading medicine shop in Central India having wide range and ready stock of Medicines, Injectables, Surgical Equipment, Tools, Swine Flu, Cancer and Specialised Medicines etc.  
                             <br />
                             <br />
 
+                        </p>
+                        <p id="main-p-RSHT01">
+                            A to Z Dava Stores is leading medicine shop in Central India having wide range and ready stock of Medicines, Injectables, Surgical Equipment, Tools, Swine Flu, Cancer and Specialised Medicines etc.  
+                            <br />
+                            <br />
+                          <!--  <a  onclick="DownLoad()"> DownLoad Imgae</a>
+                            <br />
+                            <a onclick="Dwn()"> Download Image 12 </a>
+
+
+                            <img id="dwn_img"   />-->
                         </p>
                     </div>
                 </div>
@@ -236,12 +293,12 @@
             <br />
 
             <section class="slider" id="slide-offer">
-                <div class="flexslider">
+                <div class="flexslider" id="HomeSlider-div" style="height:18vh">
                     <ul class="slides" id="sliderFrame" style="display: none" onclick="ShowOffer()">
-                        <li>
+                        <li id="slide-1">
                             <img src="assets/img/slide-1.jpg" />
                         </li>
-                        <li>
+                        <li id="slide-2">
                             <img src="assets/img/slide-2.jpg" />
                         </li>
                     </ul>
@@ -249,9 +306,9 @@
             </section>
 
 
-            <div id="menuBottun" class="MainDiv" style="display: none; margin-left: 20px; margin-right: 20px;">
+            <div id="menuBottun" class="MainDiv" style="display: none; margin-left: 20px; margin-right: 20px; ">
 
-                <div class="btn-div" id="menuBtn">
+                <div class="btn-div" id="menuBtn" >
 
                     <center>
                         <div id="tbl1">
@@ -261,7 +318,16 @@
                         <ul  data-role='listview' data-inset='true'  class='touch ui-listview ui-listview-inset ui-corner-all ui-shadow' data-icon='false' onclick='Order_click()'>
                         <li class=' ui-li-static ui-body-inherit ui-first-child ui-last-child'><img src="assets/img/Search.jpg"  /><label class="theme-color-txt" style="margin-top:6px;">Search Product/Item </label> </li>
                         </ul>
+                         <ul  data-role='listview' data-inset='true'  class='touch ui-listview ui-listview-inset ui-corner-all ui-shadow' data-icon='false' onclick='Track_Order()'>
+                        <li class=' ui-li-static ui-body-inherit ui-first-child ui-last-child'><img src="assets/img/Track.jpg"  /><label class="theme-color-txt" style="margin-top:15px;">Track Order </label> </li>
+                        </ul>
+                            <ul  data-role='listview' data-inset='true'  class='touch ui-listview ui-listview-inset ui-corner-all ui-shadow' data-icon='false' onclick='Order_History()'>
+                        <li class=' ui-li-static ui-body-inherit ui-first-child ui-last-child'><img src="assets/img/History.jpg"  /><label class="theme-color-txt" style="margin-top:15px;">Order History </label> </li>
+                        </ul>
                         </div>
+                        <br />
+                        <br />
+                        <br />
                        <!-- <table  >
                             <tr>
                                <td id='td-ord' onclick='Order_click()'>
@@ -338,6 +404,10 @@
                 <input type="text" placeholder="Enter Name" data-theme="a" id="txtRegName" />
                 <label>Mobile No</label>
                 <input type="number" placeholder="Enter Mobile No" data-theme="a" id="txtMoNO" pattern="[0-9]" />
+                <div id="Doc_Div">
+                <label>Doctor Name</label>
+                <input type="text" placeholder="Enter Doctor Name" data-theme="a" id="txtDocName" onblur="SetDocName('1')" />
+                    </div>
                 <label>Email-Id</label>
                 <input type="email" placeholder="Email Id" data-theme="a" id="txtemail" onblur="CheckEmail(this)" />
                 <div id="div_statecity">
@@ -408,7 +478,7 @@
             </div>
             <h2 id="heading1" class="GenralizedApHeading" style="font-weight: normal; color: white; text-align: center; width: 76vw; margin: 0 10vw">TiaERP@App</h2>
             <center>
-            <img src="assets/img/ShreeMedical.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;margin-left:42px;" alt="jQuery Mobile" >
+            <img src="assets/img/Header.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;margin-left:42px;" alt="jQuery Mobile" >
                 </center>
         </div>
         <div role="main" class="ui-content">
@@ -457,7 +527,7 @@
             </div>
             <h2 id="h5" class="GenralizedApHeading" style="font-weight: normal; color: white; text-align: center; width: 76vw; margin: 0 10vw"></h2>
             <center>
-            <img src="assets/img/ShreeMedical.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;" alt="jQuery Mobile" >
+            <img src="assets/img/Header.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;" alt="jQuery Mobile" >
                 </center>
         </div>
         <div role="main" class="ui-content">
@@ -468,8 +538,9 @@
         <div class="full_image">
             <img id="sel_image" src="assets/img/No_image.png" alt="NoImage" onclick="FullSize()"/>
             <a href="#" class="full_close theme-color-btn" style="padding:2px;" onclick="Close_img()">X</a>
-        </div>
-                
+           <!-- <a href="#" class="full_left " style="padding:2px;" onclick="RotateLeft()"><img id="Img15" src="assets/img/Left.png" alt="NoImage" style="width:29px;height:29px" /></a> 
+            <a href="#" class="full_right " style="padding:2px;" onclick="RotateRight()"><img id="Img19" src="assets/img/Right.png" alt="NoImage" style="width:25px;height:25px" /></a>           -->
+        </div>        
         <table class="ui-content tbl-btn-nxt-rev" style="margin-left:-3px;margin-top:-1px;">
                 <tr>
                     <td>
@@ -503,7 +574,7 @@
             </div>
             <h2 id="h1" class="GenralizedApHeading" style="font-weight: normal; color: white; text-align: center; width: 76vw; margin: 0 10vw">TiaERP@App</h2>
             <center>
-            <img src="assets/img/ShreeMedical.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;margin-left:42px;" alt="jQuery Mobile" >
+            <img src="assets/img/Header.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;margin-left:42px;" alt="jQuery Mobile" >
                 </center>
         </div>
         <div role="main" class="ui-content">
@@ -603,7 +674,7 @@
             </div>
             <h2 id="h6" class="GenralizedApHeading" style="font-weight: normal; color: white; text-align: center; width: 76vw; margin: 0 10vw">TiaERP@App</h2>
             <center>
-            <img src="assets/img/ShreeMedical.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;margin-left:42px;" alt="jQuery Mobile" >
+            <img src="assets/img/Header.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;margin-left:42px;" alt="jQuery Mobile" >
                 </center>
         </div>
         <!-- /header -->
@@ -641,16 +712,16 @@
                     <a id="lnk" onclick="ShowHide()" style="margin-top: -30vh; margin-left: 17px;">+Veiw/Hide Order Details..</a>
 
                     <table id="tbl_orderDetail" style="width: 90%; margin-left: 17px;">
-                        <tr style="display: none">
+                        <tr id="tr_DocLbl">
                             <td colspan="2">
                                 <label>Doctor:</label>
                             </td>
                         </tr>
-                        <tr style="display: none">
+                        <tr id="tr_DocTxt">
                             <td colspan="2">
                                 <input type="text" id="dr-name" placeholder="Enter Doctor Name..." data-theme="a" data-type="search" />
                                 <div id="dr-info-body" style="width: 90%" class="display-none">
-                                    <label style="margin-top: -5px; font-size: 13px;" id="dr_infoAdd"></label>
+                                    <label style="margin-top: -5px; font-size: 13px;display:none" id="dr_infoAdd"></label>
                                 </div>
                             </td>
                         </tr>
@@ -694,15 +765,19 @@
                                     <tr>
                                         <td>Subtotal:</td>
                                         <td style="float: right" id="amt"></td>
+                                    </tr>                                    
+                                    <tr id="tr_Disc">
+                                        <td id="td3">Discount (20%):</td>
+                                        <td style="float: right" id="DiscAmt">0.00</td>
+                                    </tr>
+                                    <tr id="tr_Wallete">
+                                        <td >Wallet Amt:</td>
+                                        <td style="float: right" id="walAmt">0.00</td>
                                     </tr>
                                     <tr>
                                         <td>Shipping Charges:</td>
                                         <td style="float: right" id="charges"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Wallet Amt:</td>
-                                        <td style="float: right" id="walAmt">0.00</td>
-                                    </tr>
+                                    </tr>                                   
                                     <tr>
                                         <td style="font-weight: bold">Total Order Amount: </td>
                                         <td style="float: right; font-weight: bold" id="Ordtot"></td>
@@ -813,8 +888,8 @@
                 </div>
                 <br />
                 <center>
-                    <a  style="background: #1390cf;padding:5px 35px 5px 35px; color:white;border:none;cursor:pointer;display:inline-block" onclick="Order_click()" class="theme-color-btn">New Bill</a>
-                    <a  style="background: #1390cf;padding:5px 35px 5px 35px; color:white;border:none;cursor:pointer;display:inline-block;text-decoration:none;" href="#page-con" class="theme-color-btn">Back To Menu</a>
+                    <!--<a  style="background: #1390cf;padding:5px 35px 5px 35px; color:white;border:none;cursor:pointer;display:inline-block" onclick="Order_click()" class="theme-color-btn">New Bill</a>-->
+                    <a  style="background: #1390cf;padding:5px 35px 5px 35px; color:white;border:none;cursor:pointer;display:inline-block;text-decoration:none;" onclick="Reload()" class="theme-color-btn">Back To Menu</a>
                 </center>
                 <br />
             </div>
@@ -835,7 +910,7 @@
             </div>
         </div>
         <div role="main" class="ui-content">
-            <div class="pro-div-header ">
+            <div class="pro-div-header " id="div-pro-div-header">
                 <center>                    
                     <label id="profile_name" style="color:#1390cf;font-size:19px" class="theme-color-txt-red"></label>
                      <a  onclick="EditProfile()"  >
@@ -858,9 +933,9 @@
                         <td id="td_track">
                             <label onclick="TrackOrder()">Track </label>
                         </td>
-                        <td id="td_reffer">
+                        <!--<td id="td_reffer">
                             <label onclick="RefferedTo()">Refere </label>
-                        </td>
+                        </td>-->
                     </tr>
                 </table>
             </div>
@@ -883,7 +958,7 @@
                 <div id="orderHistory-div">
                     <center>
                        <div role="main" class="ui-content" style="overflow-x: visible; width: 90%" id="Div-ord-history">
-                         <div id="Div7" >
+                         <div id="Div7" >                             
                         <img id="img18" src="assets/img/blue-cart.png" alt="Checking Status" style="margin-top:15px;" />                    
                         <p style="font-size:12px;color:#808080;margin-top:-1px;width:60vw;text-align:justify">Here you get your last order details. To veiw order item please tap on required order.</p>
                        </div>
@@ -905,6 +980,10 @@
                     <input type="text" placeholder="Enter Name" data-theme="a" id="pro_txtname" pattern="[0-9]" />
                     <label>Mobile No</label>
                     <input type="number" data-theme="a" id="pro_txtmo" />
+                    <div id="pro_DocDiv">
+                    <label>Doctor Name</label>
+                    <input type="text" placeholder="Enter Doctor Name" data-theme="a" id="pro_txtDocname" onblur="SetDocName('2')" />
+                    </div>
                     <label>Email-Id</label>
                     <input type="email" placeholder="Email Id" data-theme="a" id="pro_txtemail" onblur="CheckEmail(this)" />
 
@@ -917,7 +996,6 @@
 
                     <label>Address</label>
                     <textarea placeholder="Address" data-theme="a" id="pro_txtadd"></textarea>
-                    <a onclick="Reset()" style="text-decoration: underline">Logout</a>
                     <center>
                             <input  type="button" value="Update" class="theme-color-btn" style="background: #1390cf;padding:8px 35px 8px 35px; color:white;border:none;cursor:pointer;" onclick="UpdateProfile()" />
                     </center>
@@ -966,6 +1044,7 @@
                                      <p id="dcreditmt" style="margin-top:-10px;font-size:12px;"></p>
                                      <label id="dPaidAmt" style="margin-top:-10px;font-size:12px;"></label>                                     
                                      <p id="pDelremark" style="margin-top:-7px;font-size:12px;"></p>
+                                           
                                      <hr />
                                             </div>
                                      </div>
@@ -1031,7 +1110,7 @@
                            <label id="lbldispnote" style="color:red"></label>
                                <br />
                            </div>
-                           <div id="scrooll"></div>
+                            
                        </div>
                     </center>
                     <br />
@@ -1070,7 +1149,7 @@
                 <h2 id="h4" style="font-weight: normal; color: white; text-align: center; width: 76vw; margin: 0 10vw; padding: 11px;"></h2>
             </div>
             <center>
-            <img src="assets/img/ShreeMedical.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;" alt="jQuery Mobile" >
+            <img src="assets/img/Header.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;" alt="jQuery Mobile" >
                 </center>
             <img id="Img1" src="assets/img/green.gif" alt="Online" class="ui-btn-right alert-imgOn activeImg">
         </div>
@@ -1143,7 +1222,7 @@
                 <h2 id="h9" style="font-weight: normal; color: white; text-align: center; width: 76vw; margin: 0 10vw; padding: 11px;"></h2>
             </div>
             <center>
-            <img src="assets/img/ShreeMedical.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;" alt="jQuery Mobile" >
+            <img src="assets/img/Header.png" style="width:130px;height:30px;margin-top:10px;border-radius:20px;" alt="jQuery Mobile" >
                 </center>
         </div>
         <div role="main" class="ui-content">
@@ -1169,7 +1248,6 @@
             <h2 id="h3" style="color: white;">Offers</h2>
         </div>
         <div role="main" class="ui-content">
-
             <section class="slider">
                 <div class="flexslider flexslider1">
                     <ul class="slides" id="Ul1">

@@ -1,6 +1,6 @@
 var pushNotification;
 var db;
-var msg, title, date, id = '1';
+var msg, title, date, id;
 document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         try {
@@ -17,7 +17,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
                 pushNotification.register(
                         successHandler,
                         errorHandler, {
-                            "senderID": "330933938131",
+                            "senderID": "101936692202",
                             "ecb":"onNotificationGCM"
                         });
             }
@@ -50,7 +50,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
         t.executeSql("delete FROM Notification WHERE  id <> '" + id + "'");
     }
     function error(err) {
-        //alert('Error : ' + err.message);
+        alert('Error : ' + err.message);
     }
     function success() {
         //alert('Successfully created tables');
