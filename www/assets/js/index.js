@@ -1,13 +1,18 @@
 ﻿/* Created by ..... [*YASHASWI*] ..... */
 
 //////////*********************Specialized App For Shree Medical*****************************//////////////
- 
+/////////Use of variable
+//////Heading : App Name
+//////PCODE : Party Code used for specialized app
+//////folderPathImg : 
 var APPType = "$";
 
 //  1)///////************SHREE MEDICAL*************////////////////////////
 ////var Heading = "Shree Medical";
 ////var PCODE = "00002_" ///"00002_";
+////var folderPathImg = "file:///storage/sdcard0/" + PCODE + "/";
 ////var FolderName = PCODE;
+////var SMSFrom = "md-goyals";
 ///var HomeSlideCnt = "2";
 //var pDiscOnOrder = "0";
 //var pWallet = "1";
@@ -15,29 +20,36 @@ var APPType = "$";
 //var pDocReq = "0";
 
 //  2)///////*******A to Z Dava Healing touch medico **********************//////////
-var Heading = "A to Z Dava";
-var PCODE = "dem010";
-var FolderName = PCODE;
-var HomeSlideCnt = "1";
-var pDiscOnOrder = "1";
-var pWallet = "0";
-var pDiscPer = "20"; 
-var pDocReq = "1"; 
+////////var Heading = "A to Z Dava";
+////////var PCODE = "RSHT01";
+////////var folderPathImg = "file:///storage/sdcard0/" + PCODE + "/";
+////////var DownloadPath = "file:///storage/sdcard0/";
+////////var FolderName = PCODE;
+////////var SMSFrom = "md-goyals";
+////////var HomeSlideCnt = "1";
+////////var pDiscOnOrder = "1";
+////////var pWallet = "0";
+////////var pDiscPer = "20"; 
+////////var pDocReq = "1"; 
 
 
 //  3)///////*******A to Z Dava [Demo Version Given To Drug Deal] **********************//////////
-////var Heading = "Drug Deal";
-////var PCODE = "00256A";
-////var FolderName = PCODE;
-////var HomeSlideCnt = "1";
-////var pDiscOnOrder = "1";
-////var pWallet = "0";
-////var pDiscPer = "20";
-////var pDocReq = "1";
+var Heading = "";
+var PCODE = "DEM010";
+var folderPathImg = "file:///storage/sdcard0/" + PCODE + "/";
+var DownloadPath = "file:///storage/sdcard0/";
+var FolderName = PCODE;
+var SMSFrom = "md-goyals";
+var HomeSlideCnt = "1";
+var pDiscOnOrder = "1";
+var pWallet = "0";
+var pDiscPer = "20";
+var pDocReq = "1";
 //////*********************Generlized App*****************************//////////////
 //var APPType = "@"; 
 //var Heading = "TiaERP@ConsumerApp";
 //var PCODE = "";
+//var folderPathImg = "file:///storage/sdcard0/TiaERP@ConsumerApp/";
 //var FolderName = "TiaERP@ConsumerApp";
 //var HomeSlideCnt = "0";
 //var pDiscOnOrder = "0";
@@ -45,11 +57,13 @@ var pDocReq = "1";
 //var pWallet = "0";
 //var pDocReq = "0";
 
+var SMSFrom = "md-goyals";
 var loadmsg="Please Wait....";
 var GBCServicePath = "http://tiaapp.goyalonline.in/";
 //var GBCServicePath = "http://localhost:51738/";
 var pictureSource;
 var destinationType;
+var folderPath = "file:///storage/sdcard0";
 var Flag ;
 var myScroll;
 var activemenu;
@@ -78,8 +92,7 @@ function onDeviceReady() {
     else {
         $("#div_statecity").show();
         try {
-            if (HomeSlideCnt == "1")
-            {
+            if (HomeSlideCnt == "1") {
                 $("#HomeSlider-div").html("<ul  id='sliderFrame' style='display: none' > <li id='slide-1'>" +
                                          "<img src='assets/img/Slide-11.jpg' />" +
                                          "</li></ul>");
@@ -88,15 +101,12 @@ function onDeviceReady() {
                 $("#li-offer").hide();
             }
 
-            if (pWallet == "1")
-            {
+            if (pWallet == "1") {
                 $("#li-wal").Show();
-            } else
-            {
+            } else {
                 $("#li-wal").hide();
             }
-        } catch (e)
-        {
+        } catch (e) {
             alert(e.message);
         }        
     }
@@ -682,19 +692,7 @@ function ChkOTPSend() {
         alert(e.message);
     }
 }
-function termscondition() {
-    // $("#")
-    // window.location.href = "#Term-condition";
-    ($("#page-con").hide());
-    ($("#Term-condition").show());
 
-}
-function closewindow() {
-    // ($("#Term-condition").close());
-    
-    ($("#Term-condition").hide());
-    ($("#page-con").show());
-}
 function SendingOTP() {
     try {
        // alert('sendoing otp');
@@ -4371,4 +4369,268 @@ function updateStatusRcd() {
 
 
 
+
+function DownLoad() {
+    alert('You Click Me');
+    DownloadFile("http://tiaapp.goyalonline.in/vrimg/GC16000355.jpeg", FolderName, "Sample")
+}
+
+
+
+
+///////////////Download File From Server
+//First step check parameters mismatch and checking network connection if available call    download function
+function DownloadFile(URL, Folder_Name, File_Name) {
+    //Parameters mismatch check
+    alert(' Inside DownloadFile');
+    if (URL == null && Folder_Name == null && File_Name == null) {
+        alert('1 return');
+        return;
+    }
+    else {
+        //checking Internet connection availablity
+        var networkState = navigator.connection.type;
+        if (networkState == Connection.NONE) {
+            alert('2 return');
+            return;
+        } else {
+            download(URL, Folder_Name, File_Name); //If available download function call
+        }
+    }
+}
+//Second step to get Write permission and Folder Creation
+
+function download(URL, Folder_Name, File_Name) {
+    //step to request a file system 
+    alert('Inside download');
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fileSystemSuccess, fileSystemFail);
+    Folder_Name = "00002_";
+    function fileSystemSuccess(fileSystem) {
+        alert("fileSystem.root.toURL()=" + fileSystem.root.toURL());
+        alert("fileSystem.root.toInternalURL()=" + fileSystem.root.toInternalURL());
+        alert("fileSystem.root.nativeURL=" + fileSystem.root.nativeURL);
+        alert('inside fileSystemSuccess');
+        var download_link = encodeURI(URL);
+        ext = download_link.substr(download_link.lastIndexOf('.') + 1); //Get extension of URL
+
+        //window.resolveLocalFileSystemURL("00002_", onResolveSuccess, onResolveFail);
+
+
+        var directoryEntry = fileSystem.root; // to get root path of directory
+        directoryEntry.getDirectory(Folder_Name, { create: true, exclusive: false }, onDirectorySuccess, onDirectoryFail); // creating folder in sdcard
+        var rootdir = fileSystem.root;
+        var fp = rootdir.fullPath; // Returns Fulpath of local directory
+
+        fp = fp + "/" + Folder_Name + "/" + File_Name + "." + ext; // fullpath and name of the file which we want to give
+        // download function call
+        filetransfer(download_link, fp);
+        
+        //function onResolveSuccess(fileEntry) {
+        //    alert(" Yashaswi "+ fileEntry.toNativeURL());
+        //}
+
+        //function onResolveFail(e) {
+        //    alert("Erro :");
+        //}
+    }
+
+    function onDirectorySuccess(parent) {
+        // Directory created successfuly
+        alert('Directory created successfuly');
+    }
+
+    function onDirectoryFail(error) {
+        //Error while creating directory
+        alert("Unable to create new directory: " + error.code);
+    }
+
+    function fileSystemFail(evt) {
+        //Unable to access file system
+        alert("Unable to access file system :" + evt.target.error.code);
+    }
+}
+//Third step for download a file into created folder
+
+function filetransfer(download_link, fp) {
+    try{
+        alert(download_link);
+        alert(DownloadPath);
+        DownloadPath = fileSystem.root.toURL() + "check1" + "." + "jpeg";
+        alert(DownloadPath);
+        var uri = encodeURI("http://tiaapp.goyalonline.in/vrimg/GC16000356.jpeg");
+        var fileTransfer = new FileTransfer();
+        // File download function with URL and local path
+        fileTransfer.download(uri, DownloadPath,
+                            function (entry) {
+                                alert(DownloadPath);
+                                alert("download complete: " + entry.fullPath);
+                            },
+                         function (error) {
+                             //Download abort errors or download failed errors
+                             alert("download error Code " + error.code);
+                             //alert("download error target " + error.target);
+                             //alert("upload error code" + error.code);
+                         }
+                    );
+    } catch (e) {
+        alert(e.message);
+    }
+}
+
+
+
+function Dwn() {
+   
+    alert("Inside Dwn");
+    try {
+       
+
+        //////Try6
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fileSystemSuccess, fileSystemFail);
+        function fileSystemSuccess(fileSystem) {
+            try {
+                //alert(Environment.getExternalStorageDirectory());
+                var DownloadPath = fileSystem.root.toURL();
+                alert(DownloadPath);
+                //DownloadPath = DownloadPath.replace("files/", "");
+                //alert(DownloadPath);
+                //DownloadPath = DownloadPath.replace("files/", "");
+                //alert(DownloadPath);
+                //DownloadPath = DownloadPath.replace("com.adobe.phonegap.app/", "");
+                //DownloadPath = "file:///storage/";
+                //alert(DownloadPath);
+                DownloadPath = DownloadPath + "check1" + "." + "jpeg";
+                var DownloadPath1 = DownloadPath + "GC16000427.jpeg";
+                alert(DownloadPath);
+                //DownloadPath = "file:///storage/sdcard/";
+                //DownloadPath = DownloadPath + "check" + "." + "jpeg";
+                var uri = encodeURI("http://tiaapp.goyalonline.in/vrimg/icon.png");
+                var fileTransfer = new FileTransfer();
+                fileTransfer.download(uri, DownloadPath,
+                                function (entry) {
+                                    alert(DownloadPath);
+                                    alert("download complete: " + entry.fullPath);
+                                    document.getElementById('dwn_img').src = DownloadPath1;
+                                },
+                             function (error) {
+                                 alert("download error Code " + error.code);
+                             }
+                        );
+            } catch (e) {
+                alert(e.message);
+            }
+        }
+        function fileSystemFail(evt) {
+            //Unable to access file system
+            alert("Unable to access file system :" + evt.target.error.code);
+        }
+        //Try5  okk
+        ////var DownloadPath = "file:///storage/sdcard0/Download/";
+
+        ////DownloadPath = DownloadPath + "check" + "." + "jpeg";
+        ////var uri = encodeURI("http://tiaapp.goyalonline.in/vrimg/GC16000356.jpeg");
+        ////var fileTransfer = new FileTransfer();
+        ////fileTransfer.download(uri, DownloadPath,
+        ////                function (entry) {
+        ////                    alert(DownloadPath);
+        ////                    alert("download complete: " + entry.fullPath);
+        ////                },
+        ////             function (error) {
+        ////                 alert("download error Code " + error.code);
+        ////             }
+        ////        );
+
+        ////Try4 
+        //var url = "http://tiaapp.goyalonline.in/vrimg/GC16000356.jpeg";
+ 
+        //// we need to access LocalFileSystem
+        //window.requestFileSystem(window.LocalFileSystem.PERSISTENT, 0, function (fs) {
+        //    // create the download directory is doesn't exist
+        //    fs.root.getDirectory('downloads', { create: true });
+
+        //    ////// we will save file in .. downloads/phonegap-logo.png
+        //    ////var filePath = fs.root.fullPath + '/downloads/' + url.split('/').pop();
+        //    ////var ft = new window.FileTransfer();
+        //    ////var uri = encodeURI(url);
+        //    ////alert(filePath);
+        //    ////alert(uri);
+        //    ////ft.download(uri, filePath, function (entry) {
+        //    ////    alert("Successfully downloaded file, full path is " + entry.fullPath);
+        //    ////},
+        //    ////function (error) {
+        //    ////    alert("Try1");
+        //    ////    alert("Some error " + error.code + " for " + url);
+        //    ////},
+        //    ////false);
+
+
+        //    alert("2nd Try");
+        //    var filePath = fs.root.toURL() + '/downloads/' + url.split('/').pop();
+        //    var ft = new window.FileTransfer();
+        //    var uri = encodeURI(url);
+        //    alert(filePath);
+        //    alert(uri);
+        //    ft.download(uri, filePath, function (entry) {
+        //        alert(entry);
+        //        alert(entry.fullPath);
+        //        alert(entry.toURL);
+        //        alert("Successfully downloaded file, full path is " + filePath);
+        //    },
+        //    function (error) {
+        //        alert("Try2");
+        //        alert("Some error " + error.code + " for " + url);
+        //    },
+        //    false);
+
+        //}, fileSystemFail);
+
+        //function fileSystemFail(evt) {
+        //    //Unable to access file system
+        //    alert("Unable to access file system :" + evt.target.error.code);
+        //}
+        //Try3
+        //if (confirm('you wanna save this image?')) {
+        //    window.win = open(localStorage.getItem("APIURL"));
+        //    //    response.redirect("~/testpage.html");   
+        //    setTimeout('win.document.execCommand("SaveAs")', 100);
+        //    //setTimeout('win.close()', 500);
+        //}
+        //Try2
+        //$.ajax({
+        //    url: localStorage.getItem("APIURL"),
+        //    type: "GET",
+        //    dataType: "json",
+        //    cache: false,
+        //    success: function (data) {
+        //        alert('1')
+        //    },
+        //    error: function (xmlHttpRequest, textStatus, errorThrown) {
+        //        alert('');
+        //        alert(xmlHttpRequest.responseText);
+        //    }
+        //});
+        //Try1
+        //alert("Alert In ");
+        ////window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function gotFS(fileSystem) {
+        ////    fileSystem.root.getDirectory(FolderName, { create: true }, function fileSystemSuccess(fileSystem) {
+        ////        fileSystem.getFile("dummy.txt", { create: true, exclusive: false }, function gotFileEntry(fileEntry) {
+        ////            alert(fileSystem.root);
+        ////            alert("Yash "+ fileEntry.toNativeURL());
+        ////            var path = fileEntry.fullPath.replace("dummy.txt", "");
+        ////            alert('A');
+        ////            fileEntry.remove();
+        ////            var fileTransfer = new FileTransfer();
+        ////            alert(localStorage.getItem("APIURL"))
+        ////            fileTransfer.download(localStorage.getItem("APIURL"), path + "" + "Sample", function (theFile) {
+        ////                alert("File Downloaded Successfully " + theFile.toURI());
+        ////            }, function (error) {
+        ////                alert("File Transfer failed " + error.code);
+        ////            });
+        ////        }, fail);
+        ////    });
+        ////}, fail);
+    } catch (e) {
+        alert(e.message);
+    }
+}
 
